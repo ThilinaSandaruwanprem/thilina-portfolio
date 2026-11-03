@@ -1,5 +1,7 @@
 import Icon from './Icon';
+import ProjectVisual from './ProjectVisual';
 import Reveal from './Reveal';
+import TechIcon from './TechIcon';
 import SectionHeading from './SectionHeading';
 import { architecture, projects } from '../data/profile';
 
@@ -48,7 +50,7 @@ export default function Projects() {
             </ul>
             <div className="tags">
               {['Spring Boot', 'Spring Cloud', 'Next.js', 'PostgreSQL', 'Redis', 'AWS ECS', 'GitHub Actions'].map((t) => (
-                <span className="tag" key={t}>{t}</span>
+                <span className="tag" key={t}><TechIcon name={t} size={12} dot={false} />{t}</span>
               ))}
             </div>
           </div>
@@ -59,15 +61,7 @@ export default function Projects() {
           {projects.map((p, i) => (
             <Reveal as="article" className={`project card card-hover accent-${p.accent}`} key={p.title} delay={(i % 2) * 110}>
               <div className="project-visual">
-                {p.image ? (
-                  <img src={p.image} alt={`${p.title} website screenshot`} loading="lazy" width="1280" height="800" />
-                ) : (
-                  <div className="project-art" aria-hidden="true">
-                    <span className="project-art-icon"><Icon name={p.icon} size={40} /></span>
-                    <span className="ring r1" />
-                    <span className="ring r2" />
-                  </div>
-                )}
+                <ProjectVisual project={p} />
               </div>
               <div className="project-body">
                 <span className="kicker">{p.kind}</span>
@@ -77,7 +71,7 @@ export default function Projects() {
                   {p.highlights.map((h) => <li key={h}>{h}</li>)}
                 </ul>
                 <div className="tags">
-                  {p.tags.map((t) => <span className="tag" key={t}>{t}</span>)}
+                  {p.tags.map((t) => <span className="tag" key={t}><TechIcon name={t} size={12} dot={false} />{t}</span>)}
                 </div>
                 {p.link && (
                   <a className="project-link" href={p.link} target="_blank" rel="noreferrer">

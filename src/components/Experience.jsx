@@ -1,6 +1,7 @@
 import Icon from './Icon';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
+import TechIcon from './TechIcon';
 import { experience } from '../data/profile';
 
 export default function Experience() {
@@ -34,7 +35,7 @@ export default function Experience() {
                   {job.points.map((p) => <li key={p.slice(0, 32)}>{p}</li>)}
                 </ul>
                 <div className="tags">
-                  {job.tech.map((t) => <span className="tag" key={t}>{t}</span>)}
+                  {job.tech.map((t) => <span className="tag" key={t}><TechIcon name={t} size={12} dot={false} />{t}</span>)}
                 </div>
               </article>
             </Reveal>

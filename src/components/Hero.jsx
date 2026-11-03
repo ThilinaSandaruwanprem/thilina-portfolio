@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Icon from './Icon';
 import { useInView } from './Reveal';
+import Starfield from './Starfield';
+import TechIcon from './TechIcon';
 import { profile, stats } from '../data/profile';
+import { marqueeTech } from '../data/techIcons';
 
 const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -65,6 +68,22 @@ function Counter({ value, decimals = 0, prefix = '', suffix = '', run }) {
 export default function Hero() {
   const typed = useTypewriter(profile.focus);
   const [statsRef, statsInView] = useInView();
+  const visualRef = useRef(null);
+
+  // Gentle 3D tilt of the portrait towards the pointer.
+  const tilt = (e) => {
+    const el = visualRef.current;
+    if (!el || e.pointerType === 'touch') return;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    el.style.setProperty('--tx', x.toFixed(3));
+    el.style.setProperty('--ty', y.toFixed(3));
+  };
+  const resetTilt = () => {
+    visualRef.current?.style.setProperty('--tx', '0');
+    visualRef.current?.style.setProperty('--ty', '0');
+  };
 
   return (
     <section className="hero" id="top">
@@ -73,6 +92,7 @@ export default function Hero() {
         <div className="blob blob-2" />
         <div className="blob blob-3" />
         <div className="grid-overlay" />
+        <Starfield />
       </div>
 
       <div className="container hero-grid">
@@ -112,7 +132,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-visual">
+        <div className="hero-visual" ref={visualRef} onPointerMove={tilt} onPointerLeave={resetTilt}>
           <div className="portrait">
             <div className="portrait-ring" aria-hidden="true" />
             <img src={profile.photo} alt={profile.name} width="460" height="460" />
@@ -152,9 +172,18 @@ export default function Hero() {
         </div>
       </div>
 
-      <a href="#about" className="scroll-cue" aria-label="Scroll to About">
-        <span />
-      </a>
+      <div className="tech-strip">
+        <p className="tech-strip-label">Technologies I work with</p>
+        <div className="marquee">
+          <div className="marquee-track tech-track">
+            {[...marqueeTech, ...marqueeTech].map((t, i) => (
+              <span className="tech-logo" key={`${t}-${i}`} aria-hidden={i >= marqueeTech.length}>
+                <TechIcon name={t} size={22} /> {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

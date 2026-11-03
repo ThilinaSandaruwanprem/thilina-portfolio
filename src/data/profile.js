@@ -114,7 +114,8 @@ export const projects = [
   {
     title: 'Entgra UEM',
     kind: 'Enterprise product · Entgra',
-    icon: 'devices',
+    visual: 'uem',
+    url: 'uem · device management',
     accent: 'blue',
     text: 'A Unified Endpoint / Device Management platform used by enterprise clients to manage and secure fleets of devices.',
     highlights: ['8 major GA releases (v5.3.0 – v7.0.0)', 'Release Manager for v6.4.0 GA', 'Load testing with JMeter, deployment with NGINX'],
@@ -123,7 +124,8 @@ export const projects = [
   {
     title: 'Entgra AMI',
     kind: 'IoT / Smart Grid · Entgra',
-    icon: 'bolt',
+    visual: 'ami',
+    url: 'ami · smart grid',
     accent: 'teal',
     text: 'An Advanced Metering Infrastructure solution for smart-meter device management and device data integration.',
     highlights: ['3 GA releases (v3.4.0 – v3.6.0)', 'Built the SIM & COM device management UI', 'Monitoring with the ELK stack'],
@@ -132,7 +134,8 @@ export const projects = [
   {
     title: 'Saving Alert',
     kind: 'Final-year research · OUSL · 2023',
-    icon: 'heart',
+    visual: 'donor',
+    url: 'saving-alert · donor match',
     accent: 'rose',
     text: 'A nationwide blood & medical facility donation system that uses a KNN model to rank the nearest eligible donor in real time.',
     highlights: ['Literature review of 20 research papers & systems', 'Low-stock alerts, eligibility ranking, donation-date calculator', 'In-app chat and fundraising, on web and mobile'],
@@ -142,6 +145,7 @@ export const projects = [
     title: 'Dazzling Hearts Gold Jewellery',
     kind: 'Business website · 2026',
     image: '/images/dazzling-hearts.webp',
+    url: 'dazzling-hearts · home',
     accent: 'gold',
     text: 'A responsive website for a gold jewellery shop with a filterable collection, quick view, favourites and WhatsApp enquiries.',
     highlights: ['Collection filters by category, purity and search', 'Favourites list sent as a single enquiry', 'Tested on desktop and mobile'],

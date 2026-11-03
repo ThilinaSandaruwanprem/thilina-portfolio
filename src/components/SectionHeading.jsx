@@ -2,7 +2,7 @@ import Reveal from './Reveal';
 
 export default function SectionHeading({ index, eyebrow, title, children }) {
   return (
-    <Reveal className="section-heading">
+    <Reveal className="section-heading" data-index={index}>
       <span className="eyebrow"><span className="eyebrow-num">{index}</span>{eyebrow}</span>
       <h2>{title}</h2>
       {children && <p className="section-lead">{children}</p>}
