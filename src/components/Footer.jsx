@@ -18,7 +18,7 @@ export default function Footer() {
       <div className="container footer-inner">
         <div className="footer-brand">
           <a href="#top" className="nav-brand">
-            <span className="brand-mark">TS</span>
+            <img className="brand-mark" src={profile.avatar} alt="" width="38" height="38" />
             <span className="brand-name">{profile.name}</span>
           </a>
           <p>{profile.role} · Java · Spring Boot · React · AWS</p>

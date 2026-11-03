@@ -1,5 +1,8 @@
 // All site content lives here. Edit this file to update the portfolio.
 
+// Turns '/images/x.webp' into a URL that also works when the site is served from a sub-folder (GitHub Pages).
+export const asset = (path) => (path ? import.meta.env.BASE_URL + path.replace(/^\//, '') : path);
+
 export const profile = {
   name: 'Thilina Sandaruwan',
   firstName: 'Thilina',
@@ -12,8 +15,9 @@ export const profile = {
   email: 'prem.tsan@gmail.com',
   linkedin: 'https://www.linkedin.com/in/thilina-sandaruwan',
   github: 'https://github.com/ThilinaSandaruwanprem',
-  photo: '/images/thilina.webp',
-  // Put a PDF in public/ and set its path here (e.g. '/Thilina_Sandaruwan_CV.pdf') to show "Download CV" buttons.
+  photo: asset('/images/thilina.webp'),
+  avatar: asset('/images/avatar.webp'),
+  // Put a PDF in public/ and set its path here, e.g. asset('/Thilina_Sandaruwan_CV.pdf'), to show "Download CV" buttons.
   cv: '',
   // Phrases that rotate in the hero headline.
   focus: [
@@ -144,7 +148,7 @@ export const projects = [
   {
     title: 'Dazzling Hearts Gold Jewellery',
     kind: 'Business website · 2026',
-    image: '/images/dazzling-hearts.webp',
+    image: asset('/images/dazzling-hearts.webp'),
     url: 'dazzling-hearts · home',
     accent: 'gold',
     text: 'A responsive website for a gold jewellery shop with a filterable collection, quick view, favourites and WhatsApp enquiries.',

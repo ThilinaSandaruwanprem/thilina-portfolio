@@ -101,7 +101,7 @@ export default function Hero() {
             <span className="status-dot" /> {profile.currently}
           </span>
           <h1>
-            Hi, I&apos;m <span className="gradient-text">{profile.name}</span>.
+            Hi, I&apos;m <span className="gradient-text">{profile.name}</span>
             <span className="hero-sub">
               I design &amp; build <span className="typed">{typed}</span>
               <span className="caret" aria-hidden="true" />

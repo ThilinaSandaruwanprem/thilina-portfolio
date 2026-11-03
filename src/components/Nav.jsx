@@ -82,7 +82,7 @@ export default function Nav() {
       <div className="scroll-progress" aria-hidden="true" />
       <div className="container nav-inner">
         <a href="#top" className="nav-brand" onClick={() => setOpen(false)} aria-label={`${profile.name} – back to top`}>
-          <span className="brand-mark">TS</span>
+          <img className="brand-mark" src={profile.avatar} alt="" width="38" height="38" />
           <span className="brand-name">{profile.name}</span>
         </a>
 
